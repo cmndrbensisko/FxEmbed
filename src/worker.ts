@@ -60,10 +60,10 @@ export const app = new Hono<{
 
     if (realm) {
       console.log(`/${realm}${url.pathname}`);
-      return `BLOOP`;//`/${realm}${url.pathname}`;
+      return `/${realm}${url.pathname}`;
     } else {
       console.log(`${url.pathname}`);
-      return `BLOOP`;//`${url.pathname}`;
+      return `${url.pathname}`;
     }
   }
 });
