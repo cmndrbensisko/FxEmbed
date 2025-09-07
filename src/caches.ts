@@ -54,7 +54,7 @@ export const cacheMiddleware = (): MiddlewareHandler => async (c, next) => {
         const cachedResponse = await cache.match(cacheKey);
 
         if (cachedResponse) {
-          console.log('Cache hit');
+          console.log('Cache hit2');
           return new Response(cachedResponse.body, cachedResponse as ResponseInit);
         }
 
