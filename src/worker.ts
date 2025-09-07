@@ -41,9 +41,11 @@ export const app = new Hono<{
     console.log('cbc realm');
 
     if (realm) {
+      console.log(`goof`);
       console.log(`/${realm}${url.pathname}`);
       return `/${realm}${url.pathname}`;
     } else {
+      console.log(`troop`)
       console.log(`${url.pathname}`);
       return `${url.pathname}`;
     }
