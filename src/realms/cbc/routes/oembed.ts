@@ -20,7 +20,7 @@ const fetchArticle = async (): Promise<null> => {
   const url = c.req.url.replace("fxcbc","cbc");
   console.log('requesting', url);
   const res = await fetch(url);
-  return await res.html();
+  return await res.text();
 };
 
 article = await fetchArticle()
