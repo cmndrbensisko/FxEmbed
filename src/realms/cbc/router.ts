@@ -7,10 +7,10 @@ import { genericBlueskyRedirect } from './routes/redirects';
 import { activityRequest } from './routes/activity';
 import { getBranding } from '../../helpers/branding';
 
-export const bsky = new Hono();
+export const cbc = new Hono();
 console.log('bananatime')
-bsky.use(trimTrailingSlash());
-bsky.get('/*', oembed);
+cbc.use(trimTrailingSlash());
+cbc.get('/*', oembed);
 //bsky.get('/api/v1/statuses/:snowcode', activityRequest);
 //bsky.get('/:prefix/:handle/post/:id', bskyStatusRequest);
 //bsky.get('/profile/:handle/post/:id', bskyStatusRequest);
