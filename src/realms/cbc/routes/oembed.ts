@@ -24,7 +24,12 @@ const fetchArticle = async (): Promise<null> => {
 };
 
 const article = await fetchArticle()
-  const data = '<title>Website Name</title><meta content="' + document.querySelector("detailHeadline").innerHTML + '" property="og:title" /><meta content="Site Description" property="og:description" /><meta content="https://embed.com/this-is-the-site-url" property="og:url" /><meta content="https://embed.com/embedimage.png" property="og:image" /><meta content="#43B581" data-react-helmet="true" name="theme-color" /><script>window.onload = window.location.replace(\'' + c.req.url.replace("fxcbc","cbc") + '\')</script>';
+    const parser = new DOMParser()
+
+    // Parse the text
+    const doc = parser.parseFromString(article, "text/html")
+
+  const data = '<title>Website Name</title><meta content="' + doc.querySelector("detailHeadline").innerHTML + '" property="og:title" /><meta content="' + doc.querySelector("detailSummary").innerHTML + '" property="og:description" /><meta content="https://embed.com/this-is-the-site-url" property="og:url" /><meta content="https://embed.com/embedimage.png" property="og:image" /><meta content="#43B581" data-react-helmet="true" name="theme-color" /><script>window.onload = window.location.replace(\'' + c.req.url.replace("fxcbc","cbc") + '\')</script>';
   /* Stringify and send it on its way! */
   return c.html(data, 200);
 };
