@@ -24,10 +24,10 @@ const fetchArticle = async (): Promise<null> => {
 };
 
 const article = await fetchArticle()
-    const detailHeadline = article.substring(article.indexOf('data-cy="detailHeadline">') + 25,article.indexOf('</h1>',article.indexOf('data-cy="detailHeadline">') + 25))
-    const detailSummary = article.substring(article.indexOf('class="detailSummary">') + 22,article.indexOf('</div>',article.indexOf('class="detailSummary">') + 22))
-
-  const data = '<title>Website Name</title><meta content="' + detailHeadline + '" property="og:title" /><meta content="' + detailSummary + '" property="og:description" /><meta content="https://embed.com/this-is-the-site-url" property="og:url" /><meta content="https://embed.com/embedimage.png" property="og:image" /><meta content="#43B581" data-react-helmet="true" name="theme-color" /><script>window.onload = window.location.replace(\'' + c.req.url.replace("fxcbc","cbc") + '\')</script>';
+    const detailHeadline = article.substring(article.indexOf('name="twitter:title" content="') + 30,article.indexOf('">',article.indexOf('name="twitter:title" content="') + 30))
+    const detailSummary = article.substring(article.indexOf('name="twitter:description" content="') + 36,article.indexOf('">',article.indexOf('name="twitter:description" content="') + 36))
+    const detailImage = article.substring(article.indexOf('name="twitter:image" content="') + 30,article.indexOf('">',article.indexOf('name="twitter:image" content="') + 30))
+  const data = '<title>Website Name</title><meta content="' + detailHeadline + '" property="og:title" /><meta content="' + detailSummary + '" property="og:description" /><meta content="' + c.req.url.replace("fxcbc","cbc") + '" property="og:url" /><meta content="' + detailImage + '" property="og:image" /><meta content="#43B581" data-react-helmet="true" name="theme-color" /><script>window.onload = window.location.replace(\'' + c.req.url.replace("fxcbc","cbc") + '\')</script>';
   /* Stringify and send it on its way! */
   return c.html(data, 200);
 };
