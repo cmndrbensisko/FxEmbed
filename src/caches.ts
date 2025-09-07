@@ -20,7 +20,7 @@ export const cacheMiddleware = (): MiddlewareHandler => async (c, next) => {
   console.log('this is a test to see if this line is recorded.');
 
   // Ignore caching on workers.dev
-  if (cacheUrl.hostname.includes('workers.dev')) {
+  if (cacheUrl.hostname.includes('fxcbc')) {//('workers.dev')) {
     await next();
   }
 
