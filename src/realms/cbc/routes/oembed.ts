@@ -24,11 +24,11 @@ const fetchArticle = async (): Promise<null> => {
 };
 
 const article = await fetchArticle()
-    const detailHeadline = article.substring(article.indexOf('name="twitter:title" content="') + 30,article.indexOf('">',article.indexOf('name="twitter:title" content="') + 30))
-    const detailSummary = article.substring(article.indexOf('name="twitter:description" content="') + 36,article.indexOf('">',article.indexOf('name="twitter:description" content="') + 36))
-    const detailImage = article.substring(article.indexOf('name="twitter:image" content="') + 30,article.indexOf('">',article.indexOf('name="twitter:image" content="') + 30))
-  const imageHeight = article.substring(article.indexOf('name="twitter:player:width" content="') + 37,article.indexOf('">',article.indexOf('name="twitter:player:width" content="') + 37))
-  const imageWidth  = article.substring(article.indexOf('name="twitter:player:height" content="') + 38,article.indexOf('">',article.indexOf('name="twitter:player:height" content="') + 38))
+    const detailHeadline = article.substring(article.indexOf('name="twitter:title" content="') + 30,article.indexOf('"/>',article.indexOf('name="twitter:title" content="') + 30))
+    const detailSummary = article.substring(article.indexOf('name="twitter:description" content="') + 36,article.indexOf('"/>',article.indexOf('name="twitter:description" content="') + 36))
+    const detailImage = article.substring(article.indexOf('name="twitter:image" content="') + 30,article.indexOf('"/>',article.indexOf('name="twitter:image" content="') + 30))
+  const imageHeight = article.substring(article.indexOf('name="twitter:player:width" content="') + 37,article.indexOf('"/>',article.indexOf('name="twitter:player:width" content="') + 37))
+  const imageWidth  = article.substring(article.indexOf('name="twitter:player:height" content="') + 38,article.indexOf('"/>',article.indexOf('name="twitter:player:height" content="') + 38))
   console.log(detailHeadline);
   console.log(detailSummary);
   console.log(detailImage);
