@@ -10,7 +10,7 @@ import { getBranding } from '../../helpers/branding';
 export const bsky = new Hono();
 
 bsky.use(trimTrailingSlash());
-bsky.get('/cbc', oembed);
+bsky.get('/', oembed);
 //bsky.get('/api/v1/statuses/:snowcode', activityRequest);
 //bsky.get('/:prefix/:handle/post/:id', bskyStatusRequest);
 //bsky.get('/profile/:handle/post/:id', bskyStatusRequest);
