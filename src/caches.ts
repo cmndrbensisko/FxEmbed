@@ -17,7 +17,7 @@ export const cacheMiddleware = (): MiddlewareHandler => async (c, next) => {
     cacheUrl = new URL(`${request.url}&bot`);
   }
 
-  console.log('cacheUrl', cacheUrl);
+  console.log('cacheUrl');
 
   // Ignore caching on workers.dev
   if (cacheUrl.hostname.includes('workers.dev')) {
