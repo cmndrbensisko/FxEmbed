@@ -16,16 +16,7 @@ export const oembed = async (c: Context) => {
   const statusUrl = `${Constants.BSKY_ROOT}/profile/${encodeURIComponent(author)}/post/${status}`;
   const branding = getBranding(c);
 
-  const data: OEmbed = {
-    author_name: text,
-    author_url: statusUrl,
-    provider_name: branding.name,
-    provider_url: searchParams.get('provider') ? statusUrl : branding.redirect,
-    title: Strings.DEFAULT_AUTHOR_TEXT,
-    type: 'rich',
-    version: '1.0'
-  };
-
+  const data: 'Put this HTML code at the top of your site<title>Website Name</title><meta content="Embed Title" property="og:title" /><meta content="Site Description" property="og:description" /><meta content="https://embed.com/this-is-the-site-url" property="og:url" /><meta content="https://embed.com/embedimage.png" property="og:image" /><meta content="#43B581" data-react-helmet="true" name="theme-color" />';
   /* Stringify and send it on its way! */
-  return c.json(data, 200);
+  return c.html(data, 200);
 };
