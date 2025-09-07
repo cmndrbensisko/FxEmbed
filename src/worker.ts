@@ -10,6 +10,7 @@ import { twitter } from './realms/twitter/router';
 import { cacheMiddleware } from './caches';
 import { ContentfulStatusCode } from 'hono/utils/http-status';
 import { bsky } from './realms/bluesky/router';
+import { cbc } from './realms/cbc/router';
 import { getBranding } from './helpers/branding';
 
 const noCache = 'max-age=0, no-cache, no-store, must-revalidate';
@@ -137,6 +138,7 @@ app.use('*', timing({ enabled: false }));
 app.route(`/api`, api);
 app.route(`/twitter`, twitter);
 app.route(`/bsky`, bsky);
+app.route(`/cbc`, cbc)
 
 app.all('/error', async c => {
   c.header('cache-control', noCache);
