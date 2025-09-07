@@ -37,26 +37,8 @@ export const app = new Hono<{
       return '/error';
     }
     const baseHostName = url.hostname.split('.').slice(-2).join('.');
-    let realm = 'twitter';
-    /* Override if in API_HOST_LIST. Note that we have to check full hostname for this. */
-    if (Constants.API_HOST_LIST.includes(url.hostname)) {
-      realm = 'api';
-      console.log('API realm');
-    } else if (Constants.STANDARD_DOMAIN_LIST.includes(baseHostName)) {
-      realm = 'twitter';
-      console.log('Twitter realm');
-    } else if (Constants.STANDARD_BSKY_DOMAIN_LIST.includes(baseHostName)) {
-      realm = 'bsky';
-      console.log('Bluesky realm');
-    } else if (baseHostName.includes('workers.dev')) {
-      realm = '';
-      console.log(
-        `Domain not assigned to realm, falling back to root as we are on workers.dev: ${url.hostname}`
-      );
-    } else {
-      console.log(`Domain not assigned to realm, falling back to Twitter: ${url.hostname}`);
-    }
-    /* Defaults to Twitter realm if unknown domain specified (such as the *.workers.dev hostname) */
+    let realm = 'cbc';
+    console.log('cbc realm');
 
     if (realm) {
       console.log(`/${realm}${url.pathname}`);
