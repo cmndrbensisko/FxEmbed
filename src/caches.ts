@@ -17,10 +17,10 @@ export const cacheMiddleware = (): MiddlewareHandler => async (c, next) => {
     cacheUrl = new URL(`${request.url}&bot`);
   }
 
-  console.log('this is a test to see if this line is recorded.');
+  console.log('cacheUrl', cacheUrl);
 
   // Ignore caching on workers.dev
-  if (cacheUrl.hostname.includes('fxcbc')) {//('workers.dev')) {
+  if (cacheUrl.hostname.includes('workers.dev')) {
     await next();
   }
 
@@ -54,7 +54,7 @@ export const cacheMiddleware = (): MiddlewareHandler => async (c, next) => {
         const cachedResponse = await cache.match(cacheKey);
 
         if (cachedResponse) {
-          console.log('Cache hit2');
+          console.log('Cache hit');
           return new Response(cachedResponse.body, cachedResponse as ResponseInit);
         }
 

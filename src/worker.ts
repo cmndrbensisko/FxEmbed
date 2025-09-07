@@ -131,7 +131,7 @@ app.use('*', async (c, next) => {
   await next();
 });
 
-app.use('*', cacheMiddleware());
+//app.use('*', cacheMiddleware());
 app.use('*', timing({ enabled: false }));
 
 app.route(`/api`, api);
